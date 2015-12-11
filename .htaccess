@@ -1,0 +1,19 @@
+<IfModule mod_expires.c>
+
+    ExpiresActive on
+    ExpiresDefault                                      "access plus 1 day"
+	ExpiresByType application/font-woff                 "access plus 1 month"
+
+</IfModule>
+
+<IfModule mod_rewrite.c>
+
+	RewriteEngine On
+	RewriteRule ^posts/.+/([0-9]+)/?$	posts/index.php?id=$1 [NC,L]
+
+	RewriteCond %{QUERY_STRING} !^username= [NC]
+	RewriteRule ^account/profile/(.*)$ account/index.php?u=$1 [NC,L]
+
+	RewriteRule ^([A-Za-z0-9-]+)/.+/([0-9]+)/?$	$1/index.php?subjectId=$2 [NC,L]
+
+</IfModule>

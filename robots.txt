@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /admin/
+
+User-agent: Googlebot-Image
+Disallow: /assets/img/
+
+User-agent: Googlebot-Image
+Allow: /assets/img/logo.jpg
+
+User-agent: Googlebot-Image
+Allow: /assets/img/header-logo.png

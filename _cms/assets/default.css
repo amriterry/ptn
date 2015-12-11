@@ -1,0 +1,132 @@
+*{
+	border:none;
+	padding: 0;
+	margin: 0;
+	-webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+}
+
+html{
+	font-size: 100%;
+	font-family: Segoe UI;
+}
+
+body{
+	font-size: 1em;
+	background: #EEE;
+}
+
+a{
+	color: #008ED7;
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
+img{
+	max-width: 100%;
+}
+
+input{
+	border: 1px solid #AAA;
+	border-radius: 3px;
+	padding:0.25em 0.25em;
+	font-size: 0.9em;
+	margin: 0.25em 0;
+}
+
+input[type="submit"]{
+	background: #008ED7;
+	color: #fff;
+	border: none;
+	-webkit-transition:background 0.5s;
+	padding:0.35em 1em;
+}
+
+input[type="submit"]:hover{
+	cursor: pointer;
+	background: #007DC6;
+}
+
+.wrapper{
+	width: 100%;
+}
+
+.cleaner{
+	clear: both;
+}
+
+#header{
+	background: #222;
+	text-align: center;
+	position: fixed;
+	top:0;
+	height: 2.5em;
+	z-index: 1;
+	-webkit-box-shadow:0 5px 10px 0 #222;
+	width: 100%;
+}
+
+#header img{
+	-webkit-transform:scale(0.7);
+}
+
+.login-page{
+	margin: auto auto;
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	max-width: 20em;
+	max-height: 22em;
+}
+
+.logo{
+	margin:0.5em 0;
+}
+
+#login-form-container{
+	background: #fff;
+	max-width: 20em;
+	max-height: 15em;
+	border-radius: 3px;
+	color: #333;
+	padding: 0.65em;
+	line-height: 1.5em;
+}
+
+#login-form-container input[type="text"],#login-form-container input[type="password"],#login-form-container input[type="email"]{
+	width: 100%;
+}
+
+.small_link{
+	font-size: 0.75em;
+	color:#555;
+}
+
+#page{
+	position: relative;
+	top:2.5em;
+}
+
+#left-col{
+	background: #222;
+	display: block;
+	position: fixed;
+	z-index: 1;
+	width:10em;
+	color: #fff;
+	top:2.5em;
+	padding:0.5em;
+	height: 100%;
+}
+
+#right-col{
+	left:10em;
+	position: absolute;
+	padding:0.75em;
+}

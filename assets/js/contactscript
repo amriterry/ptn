@@ -1,0 +1,72 @@
+$("#contact-send").click(function(){
+		var captcha_codeObj = $("#contact-form input[name='captcha_code']");
+		var nameObj = $("#contact-form input[name='name']");
+		var emailObj = $("#contact-form input[name='email']");
+		var messageObj = $("#contact-form textarea[name='message']");
+
+		if(checkEmpty(nameObj) == true){
+			if(checkBeforeElement(nameObj,"nameObj") == false){
+				showFormError("Don't U have a name?",nameObj,'nameObj');
+			}
+		} else {
+			removePrevError("nameObj");
+			var name = checkEmpty(nameObj);
+		}
+
+		if(checkEmpty(emailObj) == true){
+			if(checkBeforeElement(emailObj,"emailObj") == false){
+				showFormError("Don't U have an email?",emailObj,'emailObj');
+			}
+		} else {
+			removePrevError("emailObj");
+			var email = checkEmpty(emailObj);
+		}
+
+		if(checkEmpty(messageObj) == true){
+			if(checkBeforeElement(messageObj,"messageObj") == false){
+				showFormError("Dude! U can't submit and empty message!",messageObj,'messageObj');
+			}
+		} else {
+			removePrevError("messageObj");
+			var message = checkEmpty(messageObj);
+		}
+
+		if(checkEmpty(captcha_codeObj) == true){
+			if(checkBeforeElement(captcha_codeObj,"captcha_codeObj") == false){
+				showFormError("U can't be a bot. Can u?",captcha_codeObj,'captcha_codeObj');
+			}
+		} else {
+			removePrevError("captcha_codeObj");
+			var captcha_code = checkEmpty(captcha_codeObj);
+		}
+
+		console.log(checkEmpty(nameObj));
+
+
+		if(checkEmpty(nameObj) != true && checkEmpty(emailObj) != true && checkEmpty(messageObj) != true && checkEmpty(captcha_codeObj) != true){
+			console.log("All Not Empty");
+			$.ajax({
+				type: "POST",
+				url: "send.php",
+				data: {
+					name:name,
+					email:email,
+					message:message,
+					captcha_code:captcha_code
+				},
+				success: function(data){
+					if(data == 'incorrectCaptcha'){
+						$("#loading").show();
+						reloadCaptcha();
+						$("#contact-form input[name='captcha_code']").val('');
+						
+					} else if(data == 'error'){
+						alert('Opps! Something Went Wrong! Please Try Again Later.');
+					} else {
+						$("#contact-form input[type='text']").val('');
+						$("#contact-form textarea").val('');
+					}					
+				}
+			});
+		}
+	});
